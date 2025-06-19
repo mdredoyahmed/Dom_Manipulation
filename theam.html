@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            overflow: hidden;
+          
+        }
+        .redtext {
+            color: red;
+        }
+        .emoji {
+            position:absolute;
+            font-size: 24px;
+            animation: fall 2s linear infinite ;
+        }
+        @keyframes fall {
+            0% {
+                top: -50px ;
+            }
+            100% {
+                top : 100vh;
+            }
+        }
+    </style>
+</head>
+<body>
+      
+    <div class="top-bar" id="top-bar">This is a top admin bar</div>
+
+    <section class="hero" id="hero">
+        <h1 class="" id="hero-heading">Welcome to my website</h1>
+        <p id="hero-text">this is a simple full page hero section build with plain HTML CSS AND js </p>
+        <div class="hero-buttons">
+            <button id="btn1"> Learn more</button>
+            <button id="btn2">Get start</button>
+            <button onclick="changThmes(sunsetThems)"> change to levender </button>
+            <button onclick="">Chang to dark</button>
+
+        </div>
+
+    </section>
+
+
+    <script>
+
+        const hero = document.getElementById('hero');
+        const topBar =  document.getElementById('top-bar');
+        const heading = document.getElementById('hero-heading');
+        const paragraph = document.getElementById('hero-text');
+        const buttons = document.querySelectorAll('.hero-buttons button ')
+
+
+        const sunsetThems = {
+            bgcolor : "#FF6B6B",
+            textcolor : "#FFE66D",
+            buttoncolor : "#FFD93D",
+            topbarbg : "#6B0504",
+            buttontextcolor : " #6B0504",
+            tobbartext : "#FFE66D"
+        }
+ class ThemsChanger{
+     applyTheme(theme){
+        hero.style.backgroundColor = ThemsChanger.bgcolor ;
+        heading.style.color = ThemsChanger.textcolor ;
+
+        buttons.forEach(button =>{
+            button.style.color = ThemsChanger.buttontextcolor 
+            button.style.backgroundColor = ThemsChanger.buttoncolor 
+        });
+        topBar.style.backgroundColor = ThemsChanger.topbarbg ;
+        topBar.style.color =ThemsChanger.tobbartext ;
+     }
+ }
+
+
+        
+function changThmes(theme){
+   const tc = new ThemsChanger()
+   tc.applyTheme(theme)
+}
+    </script>
+
+</body>
+</html>
